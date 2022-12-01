@@ -6,7 +6,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
 const app = (0, express_1.default)();
 app.get('/', (req, res) => {
-    res.send("hola mundo");
+    res.status(200).send("hola mundo");
 });
 app.listen(4900, () => {
     console.log("server runnning on PORT: 4900");
