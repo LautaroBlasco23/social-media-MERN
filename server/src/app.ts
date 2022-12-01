@@ -1,12 +1,10 @@
-import express, {Application, Request, Response} from 'express';
-
+import express, {Application} from 'express';
+import userRouter from './users/infrastructure/routes';
 
 const app: Application = express();
 
-app.get('/', (req: Request, res: Response) => {
-        res.status(200).send("hola mundo");
-});
+app.use('/api/users', userRouter);
 
 app.listen(4900, () => {
-        console.log("server runnning on PORT: 4900");
-});
+        console.log('Server Running on port 4900');
+})
