@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "tsc-watch --onSuccess \" node prod/app.js\"",
+    "dev": "NODE_ENV=development tsc-watch --onSuccess \" node prod/app.js\"",
     "test": "jest"
   },
   "keywords": [],
