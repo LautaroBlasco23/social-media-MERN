@@ -31,6 +31,6 @@ export default class PostUseCases {
 
     public deletePost(id: string) {
         const deletedPost = this.postRepository.deletePost(id) 
-        return deletedPost.id;
+        return deletedPost;
     }
 }
