@@ -4,6 +4,7 @@ Basic application where you can create your user, make your posts and comments, 
 ## Application entities:
 ![App-db-diagram](./app-data/Untitled%20Diagram.drawio.png)
 
+
 ## Backend Repositories
 ** User: ** 
 * getAllUSers -> return a list of all users (without sensitive data)
@@ -26,3 +27,22 @@ Basic application where you can create your user, make your posts and comments, 
 * createNewComment -> inserts a new comment into your mongo db
 * modifyComment -> -
 * deleteComment -> deletes comment and returns its id 
+
+#### Todos Backend
+- [X] User Entities
+- [X] User Application
+- [X] User Infrastructure
+- [X] Post Entities
+- [X] Post Application
+- [X] Post Infrastructure
+- [ ] Comment Entities
+- [ ] Comment Applciation
+- [ ] Comment Infrastructure
+- [ ] Auth Infrastructure (Login and register logic)
+- [ ] Tests
+#### Todos Frontend
+- [ ] Login Form
+- [ ] Register Form
+- [ ] Home page
+- [ ] Navbar
+- [ ] User profile Page
