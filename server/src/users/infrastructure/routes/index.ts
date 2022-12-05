@@ -5,6 +5,7 @@ const router = express.Router();
 
 // GET
 router.get('/', UserControllers.getAllUsers);
+router.get('/me', UserControllers.getUserWithToken);
 router.get('/:id', UserControllers.getUserById);
 
 // POST

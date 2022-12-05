@@ -13,7 +13,7 @@ const loginController = async (req: Request, res: Response) => {
         if(!isValidPassword) throw Error();
 
         //Token generation
-        const {firstName, lastName, id} = req.body;
+        const {firstName, lastName, id} = userData;
         const userToken = jwt.sign({firstName, lastName, id}, process.env.JWT_SECRET!)
 
         res.status(200).send({userToken});

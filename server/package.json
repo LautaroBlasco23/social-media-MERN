@@ -5,6 +5,8 @@
   "main": "index.js",
   "scripts": {
     "dev": "NODE_ENV=development tsc-watch --onSuccess \" node prod/app.js\"",
+    "build": "tsc",
+    "start": "NODE_ENV=production node prod/app.js",
     "test": "jest"
   },
   "keywords": [],

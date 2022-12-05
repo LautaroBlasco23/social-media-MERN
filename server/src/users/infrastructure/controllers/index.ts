@@ -1,6 +1,7 @@
 import { UserEntity, UserEntityWithoutSensitiveData } from '../../entities/user.entity';
 import MongoControllers from '../database/mongo.controllers';
 import {Request, Response} from 'express';
+import jwt, { JwtPayload } from 'jsonwebtoken';
 import bcrypt from 'bcrypt';
 import { v4 as uuid} from 'uuid';
 import 'dotenv/config';
@@ -12,7 +13,7 @@ const UserControllers = {
             if (listOfUsers === null) throw Error('Cant get list of users with mongo controller');
             res.status(200).json(listOfUsers);
         } catch (error: any) {
-            if (process.env.env === 'development') console.log(error.message); 
+            if (process.env.NODE_ENV === 'development') console.log(error.message); 
             res.status(500).send('unexpected error');
         }
         
@@ -24,7 +25,7 @@ const UserControllers = {
             if(user === null) throw Error('cant get user with mongo controller');
             res.status(200).json(user);
         } catch (error: any) {
-            if (process.env.env === 'development') console.log(error.message); 
+            if (process.env.NODE_ENV === 'development') console.log(error.message); 
             res.status(500).send('unexpected error');
         }
     },
@@ -48,7 +49,7 @@ const UserControllers = {
             if(newUserId === null) throw Error('cant create user with mongo controller');
             res.status(201).send(newUserId);
         } catch (error: any) {
-            if (process.env.env === 'development') console.log(error.message); 
+            if (process.env.NODE_ENV === 'development') console.log(error.message); 
             res.status(500).send('unexpected error');
         }
     },
@@ -71,7 +72,7 @@ const UserControllers = {
             if(modifiedUser === null ) throw Error('cant modify user with mongo controller');
             res.status(200).json(modifiedUser);
         } catch (error: any) {
-            if (process.env.env === 'development') console.log(error.message); 
+            if (process.env.NODE_ENV === 'development') console.log(error.message); 
             res.status(500).send('unexpected error');
         }
     },
@@ -82,10 +83,25 @@ const UserControllers = {
             if(deletedUserId === null) throw Error('cant delete user with mongo controller');
             res.status(200).send(deletedUserId);
         } catch (error: any) {
-            if (process.env.env === 'development') console.log(error.message); 
+            if (process.env.NODE_ENV === 'development') console.log(error.message); 
             res.status(500).send('unexpected error');
         }
     },
+
+    async getUserWithToken(req: Request, res: Response): Promise<void> {
+        try {
+            const userToken: string = req.headers.authorization?.split(' ').pop()!;
+            const undecodedToken = jwt.decode(userToken)!;
+            if(typeof undecodedToken == 'string') throw Error();
+
+            const userData = await MongoControllers.getUserById(undecodedToken.id);
+            
+            res.status(200).json(userData);
+        } catch (error: any) {
+            if (process.env.NODE_ENV === 'development') console.log(error.message); 
+            res.status(500).send('unexpected error');   
+        }
+    }
 }
 
 export default UserControllers;
