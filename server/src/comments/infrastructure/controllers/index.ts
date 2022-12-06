@@ -1,5 +1,4 @@
 import {Request, Response} from 'express';
-import CommentEntity from '../../entities/comments.entity';
 import CommentMongoControllers from '../database/mongo.controllers';
 
 class CommentControllers {

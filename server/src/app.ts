@@ -14,7 +14,7 @@ app.use(cors());
 app.use('/api/auth', authRouter);
 app.use('/api/users', isAuthorized, userRouter);
 app.use('/api/posts', isAuthorized, postRouter);
-app.use('api/comments', isAuthorized, commentRouter);
+app.use('/api/comments', isAuthorized, commentRouter);
 
 
 app.listen(4900, () => {

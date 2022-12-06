@@ -16,7 +16,7 @@ app.use((0, cors_1.default)());
 app.use('/api/auth', routes_3.default);
 app.use('/api/users', auth_check_1.default, routes_1.default);
 app.use('/api/posts', auth_check_1.default, routes_2.default);
-app.use('api/comments', auth_check_1.default, routes_4.default);
+app.use('/api/comments', auth_check_1.default, routes_4.default);
 app.listen(4900, () => {
     console.log('Server Running on port 4900');
 });
