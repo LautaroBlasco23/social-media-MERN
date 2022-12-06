@@ -16,4 +16,4 @@ app.use('/api/auth', authRouter);
 
 app.listen(4900, () => {
         console.log('Server Running on port 4900');
-})
+});

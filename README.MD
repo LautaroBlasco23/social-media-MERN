@@ -35,10 +35,10 @@ Basic application where you can create your user, make your posts and comments, 
 - [X] Post Entities
 - [X] Post Application
 - [X] Post Infrastructure
-- [ ] Comment Entities
-- [ ] Comment Applciation
+- [X] Comment Entities
+- [X] Comment Applciation
 - [ ] Comment Infrastructure
-- [ ] Auth Infrastructure (Login and register logic)
+- [X] Auth Infrastructure (Login and register logic)
 - [ ] Tests
 #### Todos Frontend
 - [ ] Login Form
