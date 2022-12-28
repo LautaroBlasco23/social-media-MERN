@@ -1,7 +1,7 @@
 import mongoose from 'mongoose';
 
 const commentSchema = new mongoose.Schema({
-    commentId: {
+    id: {
         type: String,
         required: true,
         unique: true

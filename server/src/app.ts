@@ -3,6 +3,7 @@ import userRouter from './users/infrastructure/routes';
 import postRouter from './posts/infrastructure/routes';
 import authRouter from './auth/infrastructure/routes';
 import commentRouter from './comments/infrastructure/routes';
+import badRouteError from './utils/route-error';
 import isAuthorized from './auth/infrastructure/middlewares/auth-check';
 import cors from 'cors';
 
@@ -16,6 +17,7 @@ app.use('/api/users', isAuthorized, userRouter);
 app.use('/api/posts', isAuthorized, postRouter);
 app.use('/api/comments', isAuthorized, commentRouter);
 
+app.all('*', badRouteError)
 
 app.listen(4900, () => {
         console.log('Server Running on port 4900');

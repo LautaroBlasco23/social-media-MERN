@@ -23,7 +23,7 @@ class CommentMongoControllers {
     public async createNewComment (text: string, postId: string, userId: string): Promise<string> {
         this.connectWithEnv();
         const newComment = await CommentModel.create({
-            commentId: uuid(),
+            id: uuid(),
             text,
             postId,
             userId,

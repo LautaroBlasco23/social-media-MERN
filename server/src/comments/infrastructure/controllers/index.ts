@@ -11,7 +11,6 @@ class CommentControllers {
             if(process.env.NODE_ENV === 'development') console.log(error);
             res.status(400).send('Unexpected error')
         }
-
     }
 
     getCommentById = async (req: Request, res: Response) => {
